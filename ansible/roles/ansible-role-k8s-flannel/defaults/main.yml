@@ -1,0 +1,8 @@
+---
+# k8s_flannel_ver: "v0.11.0"
+k8s_flannel_ver: "master-2019-12-09"
+k8s_flannel_definition_filename: "flannel-{{ k8s_flannel_ver }}.yml"
+k8s_flannel_definition_dir: "/root"
+
+k8s_flannel_network_pod_cidr: "10.244.0.0/16"
+# k8s_flannel_iface: "enp0s8"

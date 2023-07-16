@@ -1,0 +1,10 @@
+# code: language=ansible
+---
+- name: Install kubernetes (master)
+  become: true
+  ansible.builtin.apt:
+    name:
+      - kubelet
+      - kubectl
+      - kubernetes-cni
+    state: present

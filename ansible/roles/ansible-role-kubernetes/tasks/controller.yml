@@ -1,0 +1,7 @@
+# code: language=ansible
+---
+- name: Install kubernetes (controller)
+  become: true
+  ansible.builtin.apt:
+    name: kubectl
+    state: present

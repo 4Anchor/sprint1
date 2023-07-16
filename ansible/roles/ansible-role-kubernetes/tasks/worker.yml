@@ -1,0 +1,9 @@
+# code: language=ansible
+---
+- name: Install kubernetes (worker)
+  become: true
+  ansible.builtin.apt:
+    name:
+      - kubelet
+      - kubernetes-cni
+    state: present

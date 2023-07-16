@@ -1,0 +1,21 @@
+- name: Install and configure components
+  hosts: srv_host
+  become: True
+  roles:
+    - role: gitlab_runner
+    - role: docker
+    - role: docker-compose
+    - role: ansible-role-kubernetes
+      kubernetes_node_type: controller
+  tags: deploy_srv
+
+  tasks:
+    - name: Install required system packages
+      apt:
+        pkg:
+          - net-tools
+          - curl
+          - mc
+          - htop
+        state: latest
+        update_cache: true

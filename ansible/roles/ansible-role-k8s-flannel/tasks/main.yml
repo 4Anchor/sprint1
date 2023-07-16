@@ -1,0 +1,12 @@
+---
+
+- name: generate app definition
+  template:
+    src: "{{ k8s_flannel_definition_filename }}.j2"
+    dest: "{{ k8s_flannel_definition_dir }}/{{ k8s_flannel_definition_filename }}"
+
+- name: apply app definition
+  command: kubectl apply -f {{ k8s_flannel_definition_dir }}/{{ k8s_flannel_definition_filename }}
+  register: k8s_flannel_definition_apply
+  changed_when: "'created' in k8s_flannel_definition_apply.stdout"
+  run_once: true

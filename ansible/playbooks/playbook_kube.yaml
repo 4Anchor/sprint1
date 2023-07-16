@@ -1,0 +1,9 @@
+- name: Install Kube-component
+  hosts: master_host
+  become: True
+  roles:
+    - role: ansible-role-kubernetes
+      kubernetes_node_type: admin
+    - role: ansible-role-containerd  
+    - role: ansible-role-k8s-flannel
+  tags: deploy_master
